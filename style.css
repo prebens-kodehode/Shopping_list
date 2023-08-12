@@ -45,6 +45,7 @@ h1 {
   color: var(--li-color);
   font-size: 1.5rem;
   margin: 1rem auto 0.5rem auto;
+  text-shadow: 0 0.3rem 0.3rem rgba(40, 40, 40, 0.65);
 }
 
 #error {
@@ -64,6 +65,7 @@ input {
   margin: 0;
   background: var(--li-color);
   font-family: "Russo One", sans-serif;
+  text-align: center;
 }
 
 #input-button {
@@ -122,15 +124,16 @@ span {
   cursor: pointer;
 }
 
-img {
-  width: 7rem;
-  height: 7rem;
+footer p {
+  color: var(--li-color);
+  text-shadow: 0 0.3rem 0.3rem rgba(40, 40, 40, 0.65);
 }
 
 #basket-img {
   width: 8rem;
   height: 8rem;
   border-radius: 50rem;
+  filter: drop-shadow(0 0.3rem 0.3rem rgba(40, 40, 40, 0.65));
 }
 
 .remove-btn {
