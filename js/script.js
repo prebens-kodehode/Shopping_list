@@ -51,7 +51,7 @@ function addItem(listItem) {
   basketImg.classList.add("wiggle");
   setTimeout(() => {
     basketImg.classList.remove("wiggle");
-  }, 300);
+  }, 500);
 }
 
 // Remove item from the array
@@ -118,7 +118,7 @@ function createListItems(item) {
     setTimeout(() => {
       listItem.remove();
       removeItem(item);
-    }, 500);
+    }, 350);
   });
 
   listItem.append(span, removeButton);

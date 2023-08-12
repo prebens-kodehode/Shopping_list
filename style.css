@@ -2,12 +2,13 @@
   --main-color: #222222;
   --li-color: #c4c1c1;
   --button-color: rgb(27, 48, 53);
-  --gradient-1-color: rgb(67, 60, 118);
-  --gradient-2-color: rgb(112, 68, 132);
+  --gradient-1-color: rgb(64, 23, 140);
+  --gradient-2-color: rgb(153, 48, 202);
   font-family: "Russo One", sans-serif;
-}
 
-* {
+  --test: #460088;
+}
+#382b52 * {
   box-sizing: border-box;
 }
 
@@ -48,6 +49,10 @@ h1 {
   text-shadow: 0 0.3rem 0.3rem rgba(40, 40, 40, 0.65);
 }
 
+form {
+  gap: 0.75rem;
+}
+
 #error {
   margin: 0;
   height: 1rem;
@@ -56,15 +61,13 @@ h1 {
   filter: drop-shadow(0 0 0.5rem rgba(184, 30, 255, 0.9));
 }
 
-form {
-  gap: 0.5rem;
-}
-
 input {
   border-radius: 0.3rem;
   margin: 0;
   background: var(--li-color);
+  color: var(--main-color);
   font-family: "Russo One", sans-serif;
+  font-size: 1.2rem;
   text-align: center;
 }
 
@@ -103,6 +106,7 @@ li {
   height: fit-content;
   padding: 0.15rem 0.35rem;
   background: var(--li-color);
+  color: var(--main-color);
   border-radius: 0.6rem 0.3rem;
   font-size: 1.1rem;
   text-transform: capitalize;
@@ -168,14 +172,14 @@ footer p {
 }
 
 .fade-out {
-  animation: fade-out 500ms;
+  animation: fade-out 300ms ease-in;
 }
 
 .fade-in {
   animation: fade-in 500ms;
 }
 .wiggle {
-  animation: wiggle 300ms;
+  animation: wiggle 500ms ease-in-out;
 }
 
 input,
@@ -220,10 +224,10 @@ li {
     transform: rotate(0);
   }
   25% {
-    transform: rotate(-10deg);
+    transform: rotate(-15deg);
   }
   75% {
-    transform: rotate(10deg);
+    transform: rotate(15deg);
   }
   100% {
     transform: rotate(0);
