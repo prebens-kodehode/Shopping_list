@@ -123,9 +123,16 @@ span {
 }
 
 img {
+  width: 7rem;
+  height: 7rem;
+}
+
+#basket-img {
   width: 8rem;
   height: 8rem;
+  border-radius: 50rem;
 }
+
 
 .remove-btn {
   background: none;
