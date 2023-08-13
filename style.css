@@ -1,14 +1,13 @@
 :root {
   --main-color: #222222;
-  --li-color: #c4c1c1;
+  --li-color: #dedce7;
   --button-color: rgb(27, 48, 53);
   --gradient-1-color: rgb(64, 23, 140);
   --gradient-2-color: rgb(153, 48, 202);
   font-family: "Russo One", sans-serif;
-
-  --test: #460088;
 }
-#382b52 * {
+
+* {
   box-sizing: border-box;
 }
 
@@ -31,7 +30,7 @@ body {
 
 main {
   max-width: 23rem;
-  margin: 0 2rem;
+  margin: 01rem 2rem 0 2rem;
 }
 
 main,
@@ -104,7 +103,7 @@ ul {
 li {
   width: fit-content;
   height: fit-content;
-  padding: 0.15rem 0.35rem;
+  padding: 0.25rem 0.35rem;
   background: var(--li-color);
   color: var(--main-color);
   border-radius: 0.6rem 0.3rem;
@@ -172,7 +171,7 @@ footer p {
 }
 
 .fade-out {
-  animation: fade-out 300ms ease-in;
+  animation: fade-out 400ms ease-in;
 }
 
 .fade-in {
@@ -221,16 +220,19 @@ li {
 
 @keyframes wiggle {
   0% {
-    transform: rotate(0);
+    transform: rotate(0) translateY(0);
   }
   25% {
-    transform: rotate(-15deg);
+    transform: rotate(-15deg) translateY(-1rem);
+  }
+  50% {
+    transform: rotate(0) translateY(0);
   }
   75% {
-    transform: rotate(15deg);
+    transform: rotate(15deg) translateY(-0.5rem);
   }
   100% {
-    transform: rotate(0);
+    transform: rotate(0) translateY(0);
   }
 }
 

@@ -118,7 +118,7 @@ function createListItems(item) {
     setTimeout(() => {
       listItem.remove();
       removeItem(item);
-    }, 350);
+    }, 400);
   });
 
   listItem.append(span, removeButton);
