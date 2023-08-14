@@ -37,12 +37,14 @@ function handleForm(event) {
   updateLocalStorage();
 }
 
+
+// clears all items when shopping basket is double clicked
 basketImg.addEventListener("dblclick", () => {
   clearAllItems(itemWrapper, basketImg);
 });
 
 function renderShoppingList() {
-  // clear the container (to avoid duplications)
+  // clears the container
   itemWrapper.replaceChildren();
 
   shoppingList.forEach(createListItems);
@@ -53,6 +55,7 @@ function createListItems(item) {
   const listItem = document.createElement("li");
   listItem.id = item.id;
 
+  // check if item is greyed out
   if (item.greyedOut) {
     listItem.classList.add("line-through");
   }
@@ -60,6 +63,8 @@ function createListItems(item) {
   const span = document.createElement("span");
   span.textContent = item.name;
 
+
+  // toggles greyed out state
   span.addEventListener("click", () => {
     if (!item.greyedOut) {
       listItem.classList.add("line-through");
@@ -74,6 +79,7 @@ function createListItems(item) {
   const removeButton = document.createElement("button");
   removeButton.classList.add("remove-btn");
 
+  // appends trash can svg to button
   fetch("./images/delete.svg")
     .then((response) => response.text())
     .then((svgContent) => {
@@ -90,6 +96,7 @@ function createListItems(item) {
       console.error("Error loading SVG:", error);
     });
 
+  // toggles fade out and removes list item
   removeButton.addEventListener("click", () => {
     listItem.classList.add("fade-out");
     setTimeout(() => {
@@ -98,13 +105,16 @@ function createListItems(item) {
     }, 400);
   });
 
+  //checks if item is new and adds fade in
   if (item.newItem) {
     listItem.classList.add("fade-in");
     item.newItem = false;
   }
 
+  // appends span and button to list item
   listItem.append(span, removeButton);
 
+  // appends list item to unordered list
   itemWrapper.append(listItem);
 }
 

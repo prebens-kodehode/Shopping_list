@@ -27,12 +27,14 @@ function addItem(listItem, image) {
     newItem: true,
   });
 
+  // toggles shopping basket animation on and off
   image.classList.add("wiggle");
   setTimeout(() => {
     image.classList.remove("wiggle");
   }, 500);
 }
 
+// removes all list items from page
 function clearAllItems(wrapper, image) {
   localStorage.setItem(localStorageKey, JSON.stringify(""));
   shoppingList = JSON.parse(localStorage.getItem(localStorageKey)) || [];
@@ -42,7 +44,7 @@ function clearAllItems(wrapper, image) {
   setTimeout(() => {
     wrapper.classList.remove("clear-all");
     image.classList.remove("spin");
-    renderShoppingList();
+    wrapper.replaceChildren();
   }, 1200);
 }
 
