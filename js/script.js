@@ -2,11 +2,12 @@ const inputForm = document.querySelector("#input-form");
 const errorMessage = document.querySelector("#error");
 const inputText = document.querySelector("#input-text");
 const itemWrapper = document.querySelector("#item-wrapper");
+const basketImg = document.querySelector("#basket-img");
 
 inputForm.addEventListener("submit", handleForm);
 
 // localStorage
-const localStorageKey = "shoppingList1";
+const localStorageKey = "shoppingList";
 // sync shoppinglist with localstorage
 let shoppingList = JSON.parse(localStorage.getItem(localStorageKey)) || [];
 
@@ -22,7 +23,7 @@ function handleForm(event) {
   }
   // clear the error element
   errorMessage.textContent = "";
-  // add the todo to the array and localstorage
+  // add the item to the array and localstorage
   addItem(itemText);
 
   // render the new todolist
@@ -38,20 +39,27 @@ function updateLocalStorage() {
   localStorage.setItem(localStorageKey, JSON.stringify(shoppingList));
 }
 
-// add todo item, with a unique id based on current timestamp
+// add item, with a unique id based on current timestamp
 function addItem(listItem) {
   shoppingList.push({
     name: listItem,
     id: Date.now(),
     greyedOut: false,
+    newItem: true,
   });
-
-  const basketImg = document.querySelector("#basket-img");
 
   basketImg.classList.add("wiggle");
   setTimeout(() => {
     basketImg.classList.remove("wiggle");
   }, 500);
+}
+
+basketImg.addEventListener("dblclick", clearAllItems);
+
+function clearAllItems() {
+  localStorage.clear();
+  shoppingList = JSON.parse(localStorage.getItem(localStorageKey)) || [];
+  renderShoppingList();
 }
 
 // Remove item from the array
@@ -120,6 +128,11 @@ function createListItems(item) {
       removeItem(item);
     }, 400);
   });
+
+  if (item.newItem) {
+    listItem.classList.add("fade-in");
+    item.newItem = false;
+  }
 
   listItem.append(span, removeButton);
 
