@@ -1,3 +1,11 @@
+import {
+  shoppingList,
+  updateLocalStorage,
+  removeItem,
+  addItem,
+  clearAllItems,
+} from "./data.js";
+
 const inputForm = document.querySelector("#input-form");
 const errorMessage = document.querySelector("#error");
 const inputText = document.querySelector("#input-text");
@@ -5,11 +13,6 @@ const itemWrapper = document.querySelector("#item-wrapper");
 const basketImg = document.querySelector("#basket-img");
 
 inputForm.addEventListener("submit", handleForm);
-
-// localStorage
-const localStorageKey = "shoppingList";
-// sync shoppinglist with localstorage
-let shoppingList = JSON.parse(localStorage.getItem(localStorageKey)) || [];
 
 function handleForm(event) {
   event.preventDefault();
@@ -24,7 +27,7 @@ function handleForm(event) {
   // clear the error element
   errorMessage.textContent = "";
   // add the item to the array and localstorage
-  addItem(itemText);
+  addItem(itemText, basketImg);
 
   // render the new todolist
   renderShoppingList();
@@ -34,50 +37,9 @@ function handleForm(event) {
   updateLocalStorage();
 }
 
-function updateLocalStorage() {
-  // update local storage:
-  localStorage.setItem(localStorageKey, JSON.stringify(shoppingList));
-}
-
-// add item, with a unique id based on current timestamp
-function addItem(listItem) {
-  shoppingList.push({
-    name: listItem,
-    id: Date.now(),
-    greyedOut: false,
-    newItem: true,
-  });
-
-  basketImg.classList.add("wiggle");
-  setTimeout(() => {
-    basketImg.classList.remove("wiggle");
-  }, 500);
-}
-
-basketImg.addEventListener("dblclick", clearAllItems);
-
-function clearAllItems() {
-  localStorage.setItem(localStorageKey, JSON.stringify(""));
-  shoppingList = JSON.parse(localStorage.getItem(localStorageKey)) || [];
-  itemWrapper.classList.add("clear-all");
-  basketImg.classList.add("spin");
-
-  setTimeout(() => {
-    itemWrapper.classList.remove("clear-all");
-    basketImg.classList.remove("spin");
-    renderShoppingList();
-  }, 1200);
-}
-
-// Remove item from the array
-function removeItem(listItem) {
-  shoppingList = shoppingList.filter((item) => {
-    if (item.id === listItem.id) return false;
-    return true;
-  });
-
-  updateLocalStorage();
-}
+basketImg.addEventListener("dblclick", () => {
+  clearAllItems(itemWrapper, basketImg);
+});
 
 function renderShoppingList() {
   // clear the container (to avoid duplications)
@@ -147,5 +109,3 @@ function createListItems(item) {
 }
 
 renderShoppingList();
-
-console.log(shoppingList);
