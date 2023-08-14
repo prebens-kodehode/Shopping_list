@@ -57,9 +57,16 @@ function addItem(listItem) {
 basketImg.addEventListener("dblclick", clearAllItems);
 
 function clearAllItems() {
-  localStorage.clear();
+  localStorage.setItem(localStorageKey, JSON.stringify(""));
   shoppingList = JSON.parse(localStorage.getItem(localStorageKey)) || [];
-  renderShoppingList();
+  itemWrapper.classList.add("clear-all");
+  basketImg.classList.add("spin");
+
+  setTimeout(() => {
+    itemWrapper.classList.remove("clear-all");
+    basketImg.classList.remove("spin");
+    renderShoppingList();
+  }, 1200);
 }
 
 // Remove item from the array

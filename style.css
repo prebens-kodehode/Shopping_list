@@ -175,8 +175,21 @@ footer p {
 }
 
 .fade-in {
-  animation: fade-in 500ms;
+  animation: fade-in 500ms ease-out;
 }
+
+.fade-out {
+  animation: fade-out 400ms ease-in;
+}
+
+.clear-all {
+  animation: clear-all 1.3s ease-in-out;
+}
+
+.spin {
+  animation: spin 1.2s linear;
+}
+
 .wiggle {
   animation: wiggle 500ms ease-in-out;
 }
@@ -215,6 +228,33 @@ li {
   0% {
     opacity: 0;
     transform: scale(0);
+  }
+}
+
+@keyframes clear-all {
+  0% {
+    transform: scale(1);
+  }
+  25% {
+    transform: scale(0.65);
+  }
+  50% {
+    transform: scale(0.75) translateX(2rem);
+  }
+  100% {
+    transform: scale(0.75) translateX(-150vw);
+  }
+}
+
+@keyframes spin {
+  0% {
+    transform: rotate(0) scale(1);
+  }
+  50% {
+    transform: rotate(3turn) scale(0);
+  }
+  100% {
+    transform: rotate(6turn) scale(1);
   }
 }
 
