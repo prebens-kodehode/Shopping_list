@@ -64,6 +64,15 @@ function appendSvg(element) {
     });
 }
 
+// toggles fade out and removes list item
+function fadeAndRemove(item, listItem) {
+  listItem.classList.add("fade-out");
+  setTimeout(() => {
+    listItem.remove();
+    removeItem(item);
+  }, 400);
+}
+
 // removes all list items from page
 function clearAllItems(wrapper, image) {
   localStorage.setItem(localStorageKey, JSON.stringify(""));
@@ -86,4 +95,5 @@ export {
   clearAllItems,
   greyedOutToggle,
   appendSvg,
+  fadeAndRemove,
 };

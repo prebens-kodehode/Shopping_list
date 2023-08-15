@@ -6,6 +6,7 @@ import {
   clearAllItems,
   greyedOutToggle,
   appendSvg,
+  fadeAndRemove,
 } from "./data.js";
 
 const inputForm = document.querySelector("#input-form");
@@ -80,11 +81,7 @@ function createListItems(item) {
 
   // toggles fade out and removes list item
   removeButton.addEventListener("click", () => {
-    listItem.classList.add("fade-out");
-    setTimeout(() => {
-      listItem.remove();
-      removeItem(item);
-    }, 400);
+    fadeAndRemove(item, listItem);
   });
 
   //checks if item is new and adds fade in
