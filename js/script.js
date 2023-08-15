@@ -1,7 +1,6 @@
 import {
   shoppingList,
   updateLocalStorage,
-  removeItem,
   addItem,
   clearAllItems,
   greyedOutToggle,

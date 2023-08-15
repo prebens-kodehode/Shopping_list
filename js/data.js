@@ -87,7 +87,6 @@ function clearAllItems(wrapper, image) {
 export {
   shoppingList,
   updateLocalStorage,
-  removeItem,
   addItem,
   clearAllItems,
   greyedOutToggle,
