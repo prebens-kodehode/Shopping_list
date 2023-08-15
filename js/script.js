@@ -4,6 +4,8 @@ import {
   removeItem,
   addItem,
   clearAllItems,
+  greyedOutToggle,
+  appendSvg,
 } from "./data.js";
 
 const inputForm = document.querySelector("#input-form");
@@ -65,13 +67,7 @@ function createListItems(item) {
 
   // toggles greyed out state
   span.addEventListener("click", () => {
-    if (!item.greyedOut) {
-      listItem.classList.add("line-through");
-      item.greyedOut = true;
-    } else if (item.greyedOut) {
-      listItem.classList.remove("line-through");
-      item.greyedOut = false;
-    }
+    greyedOutToggle(item, listItem);
     updateLocalStorage();
   });
 
@@ -80,21 +76,7 @@ function createListItems(item) {
   removeButton.classList.add("remove-btn");
 
   // appends trash can svg to button
-  fetch("./images/delete.svg")
-    .then((response) => response.text())
-    .then((svgContent) => {
-      const svgDocument = new DOMParser().parseFromString(
-        svgContent,
-        "image/svg+xml"
-      );
-
-      const svgElement = svgDocument.documentElement;
-      svgElement.classList.add("delete-svg");
-      removeButton.append(svgElement);
-    })
-    .catch((error) => {
-      console.error("Error loading SVG:", error);
-    });
+  appendSvg(removeButton);
 
   // toggles fade out and removes list item
   removeButton.addEventListener("click", () => {

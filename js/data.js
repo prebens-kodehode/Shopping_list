@@ -34,6 +34,36 @@ function addItem(listItem, image) {
   }, 500);
 }
 
+// toggles greyed out state
+function greyedOutToggle(item, listItem) {
+  if (!item.greyedOut) {
+    listItem.classList.add("line-through");
+    item.greyedOut = true;
+  } else {
+    listItem.classList.remove("line-through");
+    item.greyedOut = false;
+  }
+}
+
+// appends trash can svg to button
+function appendSvg(element) {
+  fetch("./images/delete.svg")
+    .then((response) => response.text())
+    .then((svgContent) => {
+      const svgDocument = new DOMParser().parseFromString(
+        svgContent,
+        "image/svg+xml"
+      );
+
+      const svgElement = svgDocument.documentElement;
+      svgElement.classList.add("delete-svg");
+      element.append(svgElement);
+    })
+    .catch((error) => {
+      console.error("Error loading SVG:", error);
+    });
+}
+
 // removes all list items from page
 function clearAllItems(wrapper, image) {
   localStorage.setItem(localStorageKey, JSON.stringify(""));
@@ -48,4 +78,12 @@ function clearAllItems(wrapper, image) {
   }, 1200);
 }
 
-export { shoppingList, updateLocalStorage, removeItem, addItem, clearAllItems };
+export {
+  shoppingList,
+  updateLocalStorage,
+  removeItem,
+  addItem,
+  clearAllItems,
+  greyedOutToggle,
+  appendSvg,
+};
