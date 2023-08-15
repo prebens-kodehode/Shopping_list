@@ -18,9 +18,6 @@ html {
 }
 
 body {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
   max-width: 100svw;
   min-height: 100svh;
   background: linear-gradient(var(--gradient-1-color), var(--gradient-2-color));
@@ -31,14 +28,6 @@ body {
 main {
   max-width: 23rem;
   margin: 01rem 2rem 0 2rem;
-}
-
-main,
-form {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 0.3rem;
 }
 
 h1 {
@@ -65,7 +54,6 @@ input {
   margin: 0;
   background: var(--li-color);
   color: var(--main-color);
-  font-family: "Russo One", sans-serif;
   font-size: 1.2rem;
   text-align: center;
 }
@@ -74,7 +62,6 @@ input {
   border-radius: 2rem;
   color: var(--li-color);
   background: var(--button-color);
-  font-family: "Russo One", sans-serif;
   margin: 0;
   cursor: pointer;
   transition: 750ms;
@@ -92,17 +79,12 @@ input {
 
 ul {
   list-style-type: none;
-  display: flex;
-  align-items: center;
-  justify-content: center;
   flex-wrap: wrap;
   gap: 0.7rem;
   padding: 0;
 }
 
 li {
-  width: fit-content;
-  height: fit-content;
   padding: 0.25rem 0.35rem 0.25rem 0.5rem;
   background: var(--li-color);
   color: var(--main-color);
@@ -110,9 +92,6 @@ li {
   font-size: 1.1rem;
   text-transform: capitalize;
   font-family: "Permanent Marker", cursive;
-  display: flex;
-  justify-content: center;
-  align-items: center;
   gap: 0.75rem;
   word-break: break-all;
   transition: 250ms;
@@ -155,8 +134,6 @@ footer p {
   border: none;
   padding: 0;
   margin: 0;
-  width: fit-content;
-  height: fit-content;
 }
 
 .delete-svg {
@@ -181,6 +158,48 @@ footer p {
   opacity: 0.5;
 }
 
+/* collections */
+input,
+#input-button {
+  width: 12rem;
+  height: 3rem;
+  border: none;
+  font-family: "Russo One", sans-serif;
+}
+
+input,
+#input-button,
+li {
+  box-shadow: 0 0.1rem 0.2rem var(--main-color);
+}
+
+main,
+form,
+body {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+main,
+form {
+  gap: 0.3rem;
+}
+
+ul,
+li {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+li,
+.remove-btn {
+  width: fit-content;
+  height: fit-content;
+}
+
+/* animations */
 .fade-out {
   animation: fade-out 400ms ease-in;
 }
@@ -203,19 +222,6 @@ footer p {
 
 .wiggle {
   animation: wiggle 500ms ease-in-out;
-}
-
-input,
-#input-button {
-  width: 12rem;
-  height: 3rem;
-  border: none;
-}
-
-input,
-#input-button,
-li {
-  box-shadow: 0 0.1rem 0.2rem var(--main-color);
 }
 
 @keyframes fade-out {
