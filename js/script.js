@@ -37,7 +37,6 @@ function handleForm(event) {
   updateLocalStorage();
 }
 
-
 // clears all items when shopping basket is double clicked
 basketImg.addEventListener("dblclick", () => {
   clearAllItems(itemWrapper, basketImg);
@@ -60,9 +59,9 @@ function createListItems(item) {
     listItem.classList.add("line-through");
   }
 
+  // create span with item as content
   const span = document.createElement("span");
   span.textContent = item.name;
-
 
   // toggles greyed out state
   span.addEventListener("click", () => {
@@ -76,6 +75,7 @@ function createListItems(item) {
     updateLocalStorage();
   });
 
+  // remove button
   const removeButton = document.createElement("button");
   removeButton.classList.add("remove-btn");
 
