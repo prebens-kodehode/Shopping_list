@@ -11,6 +11,9 @@
     />
     <link rel="shortcut icon" href="./images/favicon.ico" type="image/x-icon" />
     <title>Shopping List</title>
+    <meta name="description" content="Shopping List with local storage" />
+    <meta name="keywords" content="shopping, list, items, local, storage" />
+    <meta name="author" content="PrebenS" />
     <link rel="stylesheet" href="./CSS/style.css" />
     <script type="module" src="./JS/script.js"></script>
   </head>
@@ -28,7 +31,12 @@
       </svg>
       <form id="input-form">
         <p id="error"></p>
-        <input id="input-text" type="text" />
+        <input
+          id="input-text"
+          type="text"
+          label="Enter item name here"
+          placeholder="Bread..."
+        />
         <button id="input-button">Add Item</button>
       </form>
       <ul id="item-wrapper"></ul>
