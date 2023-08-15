@@ -10,10 +10,7 @@ function updateLocalStorage() {
 
 // Remove item from the array
 function removeItem(listItem) {
-  shoppingList = shoppingList.filter((item) => {
-    if (item.id === listItem.id) return false;
-    return true;
-  });
+  shoppingList = shoppingList.filter((item) => item.id !== listItem.id);
 
   updateLocalStorage();
 }
