@@ -31,7 +31,7 @@ function handleForm(event) {
   // add the item to the array and localstorage
   addItem(itemText, basketImg);
 
-  // render the new todolist
+  // render the new shoppinglist
   renderShoppingList();
   // clear the input field:
   inputText.value = "";

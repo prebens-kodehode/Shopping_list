@@ -26,7 +26,7 @@ body {
 }
 
 main {
-  max-width: 23rem;
+  max-width: 23.5rem;
   margin: 01rem 2rem 0 2rem;
 }
 
@@ -35,10 +35,6 @@ h1 {
   font-size: 1.7rem;
   margin: 1rem auto;
   text-shadow: 0 0.3rem 0.3rem rgba(40, 40, 40, 0.65);
-}
-
-form {
-  gap: 0.75rem;
 }
 
 #error {
@@ -62,7 +58,7 @@ input {
   border-radius: 2rem;
   color: var(--li-color);
   background: var(--button-color);
-  margin: 0;
+  margin: 0.5rem;
   cursor: pointer;
   transition: 750ms;
 }
